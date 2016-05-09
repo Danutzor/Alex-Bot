@@ -34,18 +34,6 @@ app.listen(app.get('port'), function() {
 
 
 
-app.post('/webhook/', function (req, res) {
-    messaging_events = req.body.entry[0].messaging
-    for (i = 0; i < messaging_events.length; i++) {
-        event = req.body.entry[0].messaging[i]
-        sender = event.sender.id
-        if (event.message && event.message.text) {
-            text = event.message.text
-            sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
-        }
-    }
-    res.sendStatus(200)
-})
 
 var token = "EAADWzeEcZCt0BAFOdipcA8WQCqryTHc3W7lAxZCPORidIOTHZC3ZCJnGJsoqRvdgi8fNC67BVvsfPnbX4KHZBcB1ZCqtzRTqt9dl8BZCwP8vKnwZBwSH5Lt0pIeS9S0UJqpKIAWJ764kP2JXkNRxZAk6jKPl7hgJq5FCUhHqQiLZBgNgZDZD"
 
